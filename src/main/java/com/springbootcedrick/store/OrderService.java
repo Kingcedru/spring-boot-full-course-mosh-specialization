@@ -2,6 +2,7 @@ package com.springbootcedrick.store;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -9,8 +10,8 @@ import org.springframework.stereotype.Service;
 public class OrderService {
     private PaymentService paymentService;
 
-    @Autowired
-    public OrderService(PaymentService paymentService){
+    //@Autowired
+    public OrderService(@Qualifier("paypal") PaymentService paymentService) {
         this.paymentService = paymentService;
     }
     public void placeOrder(){
